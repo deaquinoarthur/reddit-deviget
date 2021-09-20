@@ -25,6 +25,9 @@ const colors: ObjectStringType = {
   primary: '#F87B36',
   secondary: '#EDEDED',
 
+  black: '#000000',
+  white: '#FFFFFF',
+
   gray: '#6C6C6C'
 }
 
