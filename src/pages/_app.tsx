@@ -14,6 +14,16 @@ function App({ Component, pageProps }: AppProps) {
           <link rel="shortcut icon" href="/img/icon-512.png" />
           <link rel="apple-touch-icon" href="/img/icon-512.png" />
           <link rel="manifest" href="/manifest.json" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="crossOrigin"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
           <meta
             name="description"
             content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
