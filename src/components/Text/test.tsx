@@ -151,6 +151,6 @@ describe('<Text />', () => {
       </Text>
     )
 
-    expect(container.firstChild).toHaveStyle({ 'color': '#F87B36' })
+    expect(container.firstChild).toHaveStyle({ color: '#F87B36' })
   })
 })

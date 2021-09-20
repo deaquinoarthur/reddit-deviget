@@ -17,6 +17,6 @@ export const Text = styled.span.attrs({
     text-align: ${align ? align : 'left'};
     line-height: 1.4;
 
-    color: ${!!color ? theme.colors[color] : theme.colors.gray};
+    color: ${color ? theme.colors[color] : theme.colors.gray};
   `}
 `
