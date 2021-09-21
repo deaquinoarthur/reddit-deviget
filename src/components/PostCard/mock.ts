@@ -1,9 +1,7 @@
 export default {
   posts: [
     {
-      kind: 't3',
       data: {
-        id: '2hqlxp',
         author: 'washedupwornout',
         thumbnail:
           'http://b.thumbs.redditmedia.com/9N1f7UGKM5fPZydrsgbb4_SUyyLW7A27um1VOygY3LM.jpg',
@@ -14,9 +12,7 @@ export default {
       }
     },
     {
-      kind: 't3',
       data: {
-        id: '2hozly',
         author: 'mubukugrappa',
         thumbnail: '',
         created: 1411937584,
@@ -26,9 +22,7 @@ export default {
       }
     },
     {
-      kind: 't3',
       data: {
-        id: '2hpgol',
         author: 'joebobmcgeeman',
         thumbnail: '',
         created: 1411925459,
@@ -38,9 +32,7 @@ export default {
       }
     },
     {
-      kind: 't3',
       data: {
-        id: '2hpdz2',
         author: 'ShellOilNigeria',
         thumbnail: '',
         created: 1411948932,

@@ -1,5 +1,6 @@
 import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
 import { IosArrowRight } from '@styled-icons/fluentui-system-filled/IosArrowRight'
+import { ImageFill } from '@styled-icons/bootstrap/ImageFill'
 import timestampToHours from 'utils/timestampToHours'
 import Button from 'components/Button'
 import Text from 'components/Text'
@@ -27,11 +28,15 @@ const PostCard = (props: PostCardProps) => (
 
     <Style.Content>
       <Style.ThumbnailWrapper>
-        <Style.Thumbnail src={props.thumbnail} />
+        {props.thumbnail ? (
+          <Style.Thumbnail src={props.thumbnail} alt="User thumbnail" />
+        ) : (
+          <ImageFill size={24} />
+        )}
       </Style.ThumbnailWrapper>
 
       <Text type="paragraphRegular" emphasis>
-        {props.title}
+        {props.title.substr(0, 60)}...
       </Text>
 
       <IosArrowRight size={36} />

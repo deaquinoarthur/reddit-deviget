@@ -42,12 +42,21 @@ export const ThumbnailWrapper = styled.div.attrs({
   className: 'PostCard__ThumbnailWrapper'
 })`
   ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 72px;
     min-width: 72px;
     height: 72px;
     margin-right: ${theme.spacings.small};
 
     background-color: ${theme.colors.gray};
+
+    svg {
+      min-width: 0;
+      margin-left: unset;
+      color: ${theme.colors.secondary};
+    }
   `}
 `
 
