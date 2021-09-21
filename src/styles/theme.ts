@@ -13,8 +13,9 @@ const sizes: ObjectStringType = {
   paragraphRegular: '1.6rem',
   paragraphSmall: '1.4rem',
 
-  button: '1.6rem',
   buttonSmall: '1.4rem',
+  button: '1.6rem',
+  buttonLarge: '2.13rem',
 
   notes: '1.6rem',
 
