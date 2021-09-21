@@ -29,7 +29,9 @@ const colors: ObjectStringType = {
   black: '#000000',
   white: '#FFFFFF',
 
-  gray: '#6C6C6C'
+  gray: '#6C6C6C',
+
+  statusBlue: '#319FDD'
 }
 
 const theme = {
