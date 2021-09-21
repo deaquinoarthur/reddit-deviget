@@ -36,7 +36,7 @@ export const Button = styled.button.attrs({
 
     ${asLink &&
     css`
-      padding: 0 0 ${noUnderline ? 0 : `calc(${theme.spacings.xtiny} / 2)`} 0;
+      padding: 0 0 ${noUnderline ? 0 : `calc(${theme.spacings.xtiny} / 16)`} 0;
       border-bottom: ${noUnderline ? 0 : `3px solid ${theme.colors.gray}`};
 
       background-color: transparent;
