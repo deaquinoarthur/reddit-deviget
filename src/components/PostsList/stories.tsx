@@ -4,7 +4,7 @@ import postsListMock from 'components/PostCard/mock'
 import PostsList from '.'
 
 export default {
-  title: 'PostsList',
+  title: 'Card/PostsList',
   component: PostsList
 } as Meta
 

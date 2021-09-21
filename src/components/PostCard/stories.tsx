@@ -4,7 +4,7 @@ import postCardMock from './mock'
 import PostCard from '.'
 
 export default {
-  title: 'PostCard',
+  title: 'Card/PostCard',
   component: PostCard
 } as Meta
 

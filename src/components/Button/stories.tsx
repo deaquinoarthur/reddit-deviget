@@ -4,7 +4,7 @@ import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
 import Button, { ButtonProps } from '.'
 
 export default {
-  title: 'Button',
+  title: 'Form/Button',
   component: Button
 } as Meta
 
