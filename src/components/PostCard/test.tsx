@@ -29,6 +29,6 @@ describe('<PostCard />', () => {
     expect(
       screen.getByRole('button', { name: /dismiss post/i })
     ).toBeInTheDocument()
-    expect(screen.getByText(title)).toBeInTheDocument()
+    expect(screen.getByText(`${title.substr(0, 60)}...`)).toBeInTheDocument()
   })
 })

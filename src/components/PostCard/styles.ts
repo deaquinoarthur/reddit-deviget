@@ -12,12 +12,29 @@ export const PostCard = styled.div.attrs({
 
 export const Header = styled.div.attrs({
   className: 'PostCard__Header'
-})`
-  ${({ theme }) => css`
+})<{ notRead: boolean }>`
+  ${({ notRead, theme }) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-bottom: ${theme.spacings.small};
+
+    ${notRead &&
+    css`
+      .Button {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          font-size: 14px;
+
+          margin-right: 8px;
+
+          color: ${theme.colors.statusBlue};
+          content: '⬤';
+        }
+      }
+    `}
   `}
 `
 
