@@ -3,11 +3,9 @@ import media from 'styled-media-query'
 
 export const PostDetails = styled.div.attrs({
   className: 'PostDetail'
-})<{ showDetails: boolean }>`
+})<{ showDetails: boolean | undefined }>`
   ${({ showDetails, theme }) => css`
-    position: relative;
-
-    min-height: 100vh;
+    height: 100%;
     padding: ${theme.spacings.small};
 
     background-color: ${theme.colors.white};
@@ -27,18 +25,19 @@ export const PostDetails = styled.div.attrs({
     }
 
     ${media.lessThan('medium')`
-      width: 100%;
       position: absolute;
-      transition: right 0.2s ease-in-out;
+      top: 0;
+
+      width: 100%;
+
+      transform: translateX(-100%);
+      transition: transform 0.2s ease-in-out;
 
       ${
-        showDetails
-          ? css`
-              right: 0;
-            `
-          : css`
-              right: -100%;
-            `
+        showDetails &&
+        css`
+          transform: translateX(0);
+        `
       }
     `}
   `}
@@ -70,6 +69,7 @@ export const ThumbnailWrapper = styled.div.attrs({
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 72px;
     min-width: 72px;
     height: 72px;

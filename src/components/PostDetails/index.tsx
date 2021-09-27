@@ -1,16 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { ImageFill } from '@styled-icons/bootstrap/ImageFill'
 import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
+import { ImageFill } from '@styled-icons/bootstrap/ImageFill'
 
 import { selectPostDetails, setPostDetails } from 'store'
 
 import Button from 'components/Button'
 import Text from 'components/Text'
+
 import * as Style from './styles'
 
 const PostDetails = () => {
   const dispatch = useDispatch()
+
   const postDetails = useSelector(selectPostDetails)
+
   const {
     data,
     data: { author, thumbnail, title },
@@ -18,8 +21,7 @@ const PostDetails = () => {
   } = postDetails
 
   return (
-    <Style.PostDetails showDetails={showDetails!}>
-      {console.log(postDetails)}
+    <Style.PostDetails showDetails={showDetails}>
       <CloseOutline
         size={36}
         onClick={() => dispatch(setPostDetails({ data, showDetails: false }))}
@@ -29,14 +31,24 @@ const PostDetails = () => {
         {author !== '' && (
           <Style.ThumbnailWrapper>
             {thumbnail ? (
-              <Style.Thumbnail src={thumbnail} alt="User thumbnail" />
+              <Style.Thumbnail
+                src={thumbnail}
+                alt="Post details user thumbnail"
+              />
             ) : (
               <ImageFill size={24} />
             )}
           </Style.ThumbnailWrapper>
         )}
 
-        {title && <Button asLink noUnderline text={author} />}
+        {title && (
+          <Button
+            asLink
+            noUnderline
+            text={author}
+            data-testid="Post details button"
+          />
+        )}
       </Style.Header>
 
       <Text type="heading4" content={title} />
