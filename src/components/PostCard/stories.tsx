@@ -1,5 +1,9 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 
+import { Provider } from 'react-redux'
+
+import store from 'store'
+
 import postCardMock from './mock'
 import PostCard from '.'
 
@@ -9,19 +13,25 @@ export default {
 } as Meta
 
 const {
-  num_comments,
-  thumbnail,
-  title,
+  author,
+  clicked,
   created,
-  author
+  id,
+  numComments,
+  thumbnail,
+  title
 } = postCardMock.posts[0].data
 
 export const Default: Story = () => (
-  <PostCard
-    numComments={num_comments}
-    thumbnail={thumbnail}
-    title={title}
-    created={created}
-    author={author}
-  />
+  <Provider store={store}>
+    <PostCard
+      author={author}
+      clicked={clicked}
+      created={created}
+      id={id}
+      numComments={numComments}
+      thumbnail={thumbnail}
+      title={title}
+    />
+  </Provider>
 )
