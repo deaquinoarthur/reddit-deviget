@@ -1,5 +1,5 @@
 {
-  "name": "React NextJS - Starter Kit",
+  "name": "Reddit Deviget",
   "short_name": "React NextJS",
   "icons": [
     {
@@ -14,7 +14,7 @@
     }
   ],
   "background_color": "#06092B",
-  "description": "React NextJS Starter Kit",
+  "description": "Reddit Deviget App",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#06092B"

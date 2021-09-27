@@ -13,7 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <Head>
-            <title>React NextJS - Starter Kit</title>
+            <title>Reddit Deviget</title>
             <link rel="shortcut icon" href="/img/icon-512.png" />
             <link rel="apple-touch-icon" href="/img/icon-512.png" />
             <link rel="manifest" href="/manifest.json" />
@@ -29,7 +29,7 @@ function App({ Component, pageProps }: AppProps) {
             />
             <meta
               name="description"
-              content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
+              content="Reddit Deviget application"
             />
             <meta
               name="viewport"
