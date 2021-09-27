@@ -1,28 +1,15 @@
 import { createSlice, configureStore, PayloadAction } from '@reduxjs/toolkit'
+import { PostDetailsStateType, PostsStateType } from 'types/posts'
 
-export type PostCardDataType = {
-  id: string
-  numComments: number
-  thumbnail: string
-  title: string
-  created: number
-  author: string
-  clicked: boolean
-}
-
-type PostsDataType = {
-  data: PostCardDataType[]
-}
-
-const postsDataInitialState: PostsDataType = {
-  data: [],
+const postsDataInitialState: PostsStateType = {
+  data: []
 }
 
 export const postsDataSlice = createSlice({
   name: 'postsData',
   initialState: postsDataInitialState,
   reducers: {
-    setPosts: (state, action: PayloadAction<PostsDataType>) => ({
+    setPosts: (state, action: PayloadAction<PostsStateType>) => ({
       ...state,
       ...action.payload
     })
@@ -31,16 +18,7 @@ export const postsDataSlice = createSlice({
 
 export const { setPosts } = postsDataSlice.actions
 
-type PostDetailsDataType = {
-  data: {
-    author: string
-    thumbnail: string
-    title: string
-  }
-  showDetails?: boolean
-}
-
-const postDetailsInitialState: PostDetailsDataType = {
+const postDetailsInitialState: PostDetailsStateType = {
   data: {
     author: '',
     thumbnail: '',
@@ -53,7 +31,7 @@ export const postDetailsSlice = createSlice({
   name: 'postDetails',
   initialState: postDetailsInitialState,
   reducers: {
-    setPostDetails: (state, action: PayloadAction<PostDetailsDataType>) => ({
+    setPostDetails: (state, action: PayloadAction<PostDetailsStateType>) => ({
       ...state,
       ...action.payload
     })
