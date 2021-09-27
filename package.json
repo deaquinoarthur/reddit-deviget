@@ -27,11 +27,14 @@
     ]
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
     "next": "10.0.4",
     "next-pwa": "^5.0.2",
+    "next-redux-wrapper": "^7.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-hook-form": "^7.15.3",
+    "react-redux": "^7.2.5",
     "styled-components": "5.2.1",
     "styled-icons": "^10.33.0",
     "styled-media-query": "^2.1.2"
