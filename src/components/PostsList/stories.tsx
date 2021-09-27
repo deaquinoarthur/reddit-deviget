@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+import { Provider } from 'react-redux'
 
-import postsListMock from 'components/PostCard/mock'
+import store from 'store'
+
 import PostsList from '.'
 
 export default {
@@ -8,12 +10,8 @@ export default {
   component: PostsList
 } as Meta
 
-const posts = postsListMock.posts.map((item) => ({
-  numComments: item.data.num_comments,
-  thumbnail: item.data.thumbnail,
-  title: item.data.title,
-  created: item.data.created,
-  author: item.data.author
-}))
-
-export const Default: Story = () => <PostsList posts={posts} />
+export const Default: Story = () => (
+  <Provider store={store}>
+    <PostsList />
+  </Provider>
+)
