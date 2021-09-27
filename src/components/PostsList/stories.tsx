@@ -16,6 +16,4 @@ const posts = postsListMock.posts.map((item) => ({
   author: item.data.author
 }))
 
-console.log(posts)
-
 export const Default: Story = () => <PostsList posts={posts} />

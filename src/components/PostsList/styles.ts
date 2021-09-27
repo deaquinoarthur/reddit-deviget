@@ -5,6 +5,8 @@ export const PostsList = styled.div.attrs({
   className: 'PostsList'
 })`
   ${({ theme }) => css`
+    background-color: ${theme.colors.secondary};
+
     .PostCard {
       &:not(:last-child) {
         border-bottom: 1px solid ${lighten(0.3, theme.colors.gray)};
@@ -17,6 +19,8 @@ export const Container = styled.div.attrs({
   className: 'PostsLists__Container'
 })`
   ${({ theme }) => css`
+    height: calc(100vh - 164px);
+    overflow-y: auto;
     border-right: 2px solid ${theme.colors.primary};
   `}
 `
