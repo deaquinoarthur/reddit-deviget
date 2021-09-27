@@ -5,18 +5,21 @@ import { sortPostsByDate } from 'utils/sortPostsByDate'
 import { setPosts } from 'store'
 
 import HomeLayout from 'templates/HomeLayout'
+import { HomeType } from 'types/posts'
 
-export default function Home(props: any) {
+export default function Home(props: HomeType) {
   const dispatch = useDispatch()
 
+  const { posts } = props
+
   useEffect(() => {
-    dispatch(setPosts({ data: props.posts }))
-  }, [])
+    dispatch(setPosts({ data: posts }))
+  })
 
   return <HomeLayout />
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const postsWithOnlyNeededProperties = (dataFromResponse: any) => {
     return dataFromResponse
       .map((item: typeof dataFromResponse) => ({
