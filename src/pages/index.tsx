@@ -6,6 +6,7 @@ import { setPosts } from 'store'
 
 import HomeLayout from 'templates/HomeLayout'
 import { HomeType } from 'types/posts'
+import { useFetch } from 'hooks'
 
 export default function Home(props: HomeType) {
   const dispatch = useDispatch()
@@ -34,9 +35,9 @@ export const getStaticProps = async () => {
       .sort(sortPostsByDate)
   }
 
-  const posts = await fetch('https://www.reddit.com/r/webdev.json?limit=50')
-    .then((data) => data.json())
-    .then((res) => postsWithOnlyNeededProperties(res.data.children))
+  const response = await useFetch('https://www.reddit.com/r/webdev.json', { limit: 3 })
+
+  const posts = postsWithOnlyNeededProperties(response.data.children)
 
   // NOTE: I was having internet issues, so I set this local api mock
   // const localPosts = await fetch('http://localhost:3333/posts')

@@ -1,44 +1,8 @@
-import { createSlice, configureStore, PayloadAction } from '@reduxjs/toolkit'
-import { PostDetailsStateType, PostsStateType } from 'types/posts'
+import { configureStore } from '@reduxjs/toolkit'
+import { postsDataSlice, setPosts } from 'store/slices/posts'
+import { postDetailsSlice, setPostDetails } from './slices/postDetails'
 
-const postsDataInitialState: PostsStateType = {
-  data: []
-}
-
-export const postsDataSlice = createSlice({
-  name: 'postsData',
-  initialState: postsDataInitialState,
-  reducers: {
-    setPosts: (state, action: PayloadAction<PostsStateType>) => ({
-      ...state,
-      ...action.payload
-    })
-  }
-})
-
-export const { setPosts } = postsDataSlice.actions
-
-const postDetailsInitialState: PostDetailsStateType = {
-  data: {
-    author: '',
-    thumbnail: '',
-    title: ''
-  },
-  showDetails: false
-}
-
-export const postDetailsSlice = createSlice({
-  name: 'postDetails',
-  initialState: postDetailsInitialState,
-  reducers: {
-    setPostDetails: (state, action: PayloadAction<PostDetailsStateType>) => ({
-      ...state,
-      ...action.payload
-    })
-  }
-})
-
-export const { setPostDetails } = postDetailsSlice.actions
+export { setPosts, setPostDetails }
 
 const store = configureStore({
   reducer: {

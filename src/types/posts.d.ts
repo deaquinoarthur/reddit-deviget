@@ -1,3 +1,7 @@
+export type URLType = {
+  [key: string]: string | number
+}
+
 export type PostCardType = {
   id: string
   numComments: number
