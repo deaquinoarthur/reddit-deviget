@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 import { lighten } from 'polished'
 
 export const PostsList = styled.div.attrs({
@@ -6,8 +7,10 @@ export const PostsList = styled.div.attrs({
 })<{ dismissAll: boolean }>`
   ${({ dismissAll, theme }) => css`
     position: relative;
+
     width: 100%;
     height: 100vh;
+
     overflow: hidden;
     background-color: ${theme.colors.secondary};
 
@@ -35,11 +38,15 @@ export const Container = styled.div.attrs({
   className: 'PostsList__Container'
 })`
   ${({ theme }) => css`
-    height: calc(100% - 103px);
+    height: 88vh;
     border-right: 2px solid ${theme.colors.primary};
 
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
+
+    ${media.lessThan('medium')`
+      height: 86vh;      
+    `}
   `}
 `
 
@@ -73,10 +80,14 @@ export const NoPosts = styled.div.attrs({
     align-items: center;
     justify-content: center;
 
-    height: calc(100vh - 164px);
+    height: 68vh;
 
     transition: opacity visibility 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
+
+    ${media.lessThan('medium')`
+      height: 80vh;      
+    `}
   `}
 `

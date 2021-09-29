@@ -5,7 +5,9 @@ export const PostDetails = styled.div.attrs({
   className: 'PostDetail'
 })<{ showDetails: boolean | undefined }>`
   ${({ showDetails, theme }) => css`
-    height: 100%;
+    position: relative;
+
+    height: 80vh;
     padding: ${theme.spacings.small};
 
     background-color: ${theme.colors.white};
@@ -26,6 +28,7 @@ export const PostDetails = styled.div.attrs({
 
     ${media.lessThan('medium')`
       position: absolute;
+      z-index: 20;
       top: 0;
 
       width: 100%;
@@ -36,6 +39,8 @@ export const PostDetails = styled.div.attrs({
       ${
         showDetails &&
         css`
+          height: 110vh;
+
           transform: translateX(0);
         `
       }
