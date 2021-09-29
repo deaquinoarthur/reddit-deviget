@@ -6,7 +6,7 @@ import { setPosts } from 'store'
 
 import HomeLayout from 'templates/HomeLayout'
 import { HomeType } from 'types/posts'
-import { useFetch } from 'hooks'
+import { fetchData } from 'utils/fetchData'
 
 export default function Home(props: HomeType) {
   const dispatch = useDispatch()
@@ -35,7 +35,9 @@ export const getStaticProps = async () => {
       .sort(sortPostsByDate)
   }
 
-  const response = await useFetch('https://www.reddit.com/r/webdev.json', { limit: 3 })
+  const response = await fetchData('https://www.reddit.com/r/webdev.json', {
+    limit: 50
+  })
 
   const posts = postsWithOnlyNeededProperties(response.data.children)
 
