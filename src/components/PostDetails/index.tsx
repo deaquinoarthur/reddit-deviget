@@ -30,7 +30,7 @@ const PostDetails = () => {
       <Style.Header>
         {author !== '' && (
           <Style.ThumbnailWrapper>
-            {thumbnail ? (
+            {thumbnail.includes('http') ? (
               <Style.Thumbnail
                 src={thumbnail}
                 alt="Post details user thumbnail"
