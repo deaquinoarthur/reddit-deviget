@@ -6,7 +6,7 @@ import { URLType } from 'types/posts'
  * @param {URLType} params - The query params of an URL
  * @returns {string}
  */
-export const useFetch = async (url: string, params: URLType) => {
+export const fetchData = async (url: string, params: URLType) => {
   const buildURLParams = Object.keys(params).reduce((acc, item, index) => {
     if (index === 0) {
       acc += `?${item}=${params[item]}`
