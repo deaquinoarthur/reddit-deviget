@@ -113,7 +113,7 @@ const PostCard = (props: PostCardType) => {
         aria-label="Show Details"
       >
         <Style.ThumbnailWrapper>
-          {thumbnail ? (
+          {thumbnail.includes('http') ? (
             <Style.Thumbnail src={thumbnail} alt="User thumbnail" />
           ) : (
             <ImageFill size={24} />
