@@ -9,7 +9,7 @@ export const PostsList = styled.div.attrs({
     position: relative;
 
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 72px);
 
     overflow: hidden;
     background-color: ${theme.colors.secondary};
@@ -19,6 +19,10 @@ export const PostsList = styled.div.attrs({
         border-bottom: 1px solid ${lighten(0.3, theme.colors.gray)};
       }
     }
+
+    ${media.lessThan('medium')`
+      height: calc(100vh - 69px);
+    `}
 
     ${dismissAll &&
     css`
@@ -38,14 +42,14 @@ export const Container = styled.div.attrs({
   className: 'PostsList__Container'
 })`
   ${({ theme }) => css`
-    height: 88vh;
+    height: calc(80vh - 103px);
     border-right: 2px solid ${theme.colors.primary};
 
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
 
     ${media.lessThan('medium')`
-      height: 86vh;      
+      height: calc(100vh - 172px);      
     `}
   `}
 `

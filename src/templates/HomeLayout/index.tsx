@@ -1,3 +1,4 @@
+import Paginator from 'components/Paginator'
 import PostList from 'components/PostsList'
 import PostDetails from 'components/PostDetails'
 
@@ -9,6 +10,7 @@ const HomeLayout = () => {
       <Style.Container>
         <PostList />
         <PostDetails />
+        <Paginator />
       </Style.Container>
     </Style.HomeLayout>
   )
