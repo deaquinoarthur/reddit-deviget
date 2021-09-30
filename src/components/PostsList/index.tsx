@@ -12,7 +12,7 @@ import * as Style from './styles'
 const PostsList = () => {
   const dispatch = useDispatch()
 
-  const posts = useSelector(selectPostsData)
+  const { posts } = useSelector(selectPostsData)
 
   const [dismissAll, setDismissAll] = useState(false)
 
@@ -20,7 +20,7 @@ const PostsList = () => {
     setDismissAll(true)
 
     setTimeout(function () {
-      dispatch(setPosts({ data: [] }))
+      dispatch(setPosts({ posts: [] }))
 
       dispatch(
         setPostDetails({

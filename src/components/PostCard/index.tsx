@@ -18,7 +18,7 @@ const PostCard = (props: PostCardType) => {
 
   const dispatch = useDispatch()
 
-  const posts = useSelector(selectPostsData)
+  const { posts } = useSelector(selectPostsData)
 
   const [isDismissed, setIsDismissed] = useState(false)
 
@@ -45,7 +45,7 @@ const PostCard = (props: PostCardType) => {
       return item
     })
 
-    dispatch(setPosts({ data: updatedPosts }))
+    dispatch(setPosts({ posts: updatedPosts }))
   }
 
   const dismissPost = () => {
@@ -86,7 +86,7 @@ const PostCard = (props: PostCardType) => {
 
     const updatedPostsList = posts.filter((item) => item.id !== id)
 
-    dispatch(setPosts({ data: updatedPostsList }))
+    dispatch(setPosts({ posts: updatedPostsList }))
 
     dispatch(
       setPostDetails({

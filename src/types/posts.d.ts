@@ -1,5 +1,5 @@
 export type URLType = {
-  [key: string]: string | number
+  [key: string]: string | number | undefined
 }
 
 export type PostCardType = {
@@ -19,12 +19,16 @@ export type PostDetailsType = {
 }
 
 export type HomeType = {
+  paginationAfter: string
+  paginationBefore: string
   posts: PostCardType[]
 }
 
 // Redux Store Types
 export type PostsStateType = {
-  data: PostCardType[]
+  paginationAfter?: string | null
+  paginationBefore?: string | null
+  posts: PostCardType[]
 }
 
 export type PostDetailsStateType = {
