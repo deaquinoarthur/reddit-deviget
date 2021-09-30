@@ -11,20 +11,18 @@ import { URLType } from 'types/posts'
 
 const postsWithOnlyNeededProperties = (dataFromResponse: any) => {
   return dataFromResponse.map((item: typeof dataFromResponse) => ({
+    author: item.data.author,
+    clicked: item.data.clicked,
+    created: item.data.created,
     id: item.data.id,
+    name: item.data.name,
     numComments: item.data.num_comments,
     thumbnail: item.data.thumbnail,
-    title: item.data.title,
-    created: item.data.created,
-    author: item.data.author,
-    clicked: item.data.clicked
+    title: item.data.title
   }))
 }
 
 export const fetchData = async (url: string, params: URLType) => {
-  let after = ''
-  let before = ''
-
   const buildURLParams = Object.keys(params).reduce(
     (queryParams, item, index) => {
       if (index === 0) {
@@ -43,15 +41,10 @@ export const fetchData = async (url: string, params: URLType) => {
   const response = await fetch(url)
     .then((data) => data.json())
     .then((res) => {
-      after = res.data.after
-      before = res.data.before
-
       return postsWithOnlyNeededProperties(res.data.children)
     })
 
   return {
-    after,
-    before,
     posts: response
   }
 }

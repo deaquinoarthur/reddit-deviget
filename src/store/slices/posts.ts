@@ -2,8 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { PostsStateType } from 'types/posts'
 
 export const postsDataInitialState: PostsStateType = {
-  paginationAfter: null,
-  paginationBefore: null,
+  veryFirstPost: '',
   posts: []
 }
 

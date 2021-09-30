@@ -21,7 +21,7 @@ export const PostsList = styled.div.attrs({
     }
 
     ${media.lessThan('medium')`
-      height: calc(100vh - 69px);
+      height: calc(100vh - 67px);
     `}
 
     ${dismissAll &&
@@ -49,7 +49,7 @@ export const Container = styled.div.attrs({
     transition: transform 0.3s ease-in-out;
 
     ${media.lessThan('medium')`
-      height: calc(100vh - 172px);      
+      height: calc(100vh - 170px);      
     `}
   `}
 `

@@ -86,7 +86,9 @@ const PostCard = (props: PostCardType) => {
 
     const updatedPostsList = posts.filter((item) => item.id !== id)
 
-    dispatch(setPosts({ posts: updatedPostsList }))
+    dispatch(
+      setPosts({ veryFirstPost: updatedPostsList[0].name, posts: updatedPostsList })
+    )
 
     dispatch(
       setPostDetails({

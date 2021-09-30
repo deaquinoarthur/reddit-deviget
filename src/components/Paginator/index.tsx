@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { selectPostsData, setPosts } from 'store'
@@ -11,57 +12,77 @@ import * as Style from './styles'
 const Paginator = () => {
   const dispatch = useDispatch()
 
-  const { paginationAfter, paginationBefore, posts } = useSelector(
-    selectPostsData
-  )
+  const { posts, veryFirstPost } = useSelector(selectPostsData)
+
+  const [initialFirstPost, setInitialFirstPost] = useState(veryFirstPost)
+
+  useEffect(() => {
+    setInitialFirstPost(veryFirstPost)
+  }, [veryFirstPost])
+
+  const isTheVeryFirstPost = posts[0]?.name === initialFirstPost
+
+  const before = isTheVeryFirstPost ? null : posts[0]?.name
+  const after = posts[posts.length - 1]?.name
 
   const getPreviousPosts = async () => {
-    // TODO: Implement the back functionality
-  }
-
-  const getNextPosts = async () => {
-    if (paginationAfter) {
-      const { after, before, posts } = await fetchData(
+    if (before) {
+      const { posts } = await fetchData(
         'https://www.reddit.com/r/webdev.json',
         {
-          after: paginationAfter,
-          limit: 10,
-          count: 10
+          before: before,
+          limit: 10
         }
       )
 
-      const newPaginationBefore = before
-      const newPaginationAfter = after
-
       dispatch(
         setPosts({
-          paginationAfter: newPaginationAfter,
-          paginationBefore: newPaginationBefore,
           posts
         })
       )
     }
   }
 
-  return (
-    <Style.Paginator>
-      {posts.length > 0 && paginationBefore && (
-        <Button
-          asLink
-          color="gray"
-          noUnderline
-          onClick={() => getPreviousPosts()}
-        >
-          Previous
-        </Button>
-      )}
+  const getNextPosts = async () => {
+    const { posts } = await fetchData('https://www.reddit.com/r/webdev.json', {
+      after: after,
+      count: 10,
+      limit: 10
+    })
 
-      {posts.length > 0 && (
-        <Button asLink color="gray" noUnderline onClick={() => getNextPosts()}>
-          Next
-        </Button>
+    dispatch(
+      setPosts({
+        posts
+      })
+    )
+  }
+
+  return (
+    <>
+      {posts.length !== 0 && (
+        <Style.Paginator>
+          {!isTheVeryFirstPost && (
+            <Button
+              asLink
+              color="white"
+              noUnderline
+              onClick={() => getPreviousPosts()}
+            >
+              Previous
+            </Button>
+          )}
+
+          <Button
+            asLink
+            color="white"
+            noUnderline
+            onClick={() => getNextPosts()}
+          >
+            Next
+          </Button>
+        </Style.Paginator>
       )}
-    </Style.Paginator>
+    </>
   )
 }
 

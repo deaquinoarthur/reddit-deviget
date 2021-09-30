@@ -12,27 +12,22 @@ import HomeLayout from 'templates/HomeLayout'
 export default function Home(props: HomeType) {
   const dispatch = useDispatch()
 
-  const { paginationAfter, paginationBefore, posts } = props
+  const { posts } = props
 
   useEffect(() => {
-    dispatch(setPosts({ paginationBefore, paginationAfter, posts }))
+    dispatch(setPosts({ veryFirstPost: posts[0].name, posts }))
   })
 
   return <HomeLayout />
 }
 
 export const getStaticProps = async () => {
-  const { after, before, posts } = await fetchData(
-    'https://www.reddit.com/r/webdev.json',
-    {
-      limit: 10
-    }
-  )
+  const { posts } = await fetchData('https://www.reddit.com/r/webdev.json', {
+    limit: 9
+  })
 
   return {
     props: {
-      paginationAfter: after,
-      paginationBefore: before,
       posts
     }
   }

@@ -3,13 +3,14 @@ export type URLType = {
 }
 
 export type PostCardType = {
+  author: string
+  clicked: boolean
+  created: number
   id: string
+  name?: string
   numComments: number
   thumbnail: string
   title: string
-  created: number
-  author: string
-  clicked: boolean
 }
 
 export type PostDetailsType = {
@@ -19,15 +20,12 @@ export type PostDetailsType = {
 }
 
 export type HomeType = {
-  paginationAfter: string
-  paginationBefore: string
   posts: PostCardType[]
 }
 
 // Redux Store Types
 export type PostsStateType = {
-  paginationAfter?: string | null
-  paginationBefore?: string | null
+  veryFirstPost?: string
   posts: PostCardType[]
 }
 

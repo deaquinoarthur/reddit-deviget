@@ -16,13 +16,13 @@ export const Paginator = styled.div.attrs({
     padding: ${theme.spacings.small};
     box-shadow: 0 -10px 16px rgba(0, 0, 0, 0.1);
 
-    background-color: ${theme.colors.secondary};
+    background-color: ${theme.colors.primary};
 
     .Button {
       transition: color 0.2s ease-in-out;
 
       &:hover {
-        color: ${theme.colors.primary};
+        color: ${theme.colors.secondary};
       }
     }
 
@@ -33,8 +33,6 @@ export const Paginator = styled.div.attrs({
       width: 200px;
       border-radius: 8px;
       border-top: 0;
-
-      background-color: ${theme.colors.secondary};
     `}
   `}
 `
